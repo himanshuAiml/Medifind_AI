@@ -2,7 +2,7 @@
 
 AI-powered medicine availability and alternative finder. Search for a medicine (typos allowed), find nearby pharmacies, and see how likely it is to be in stock.
 
-**Team MediFind (MFA-01)**
+**Team MediFind (Team id = 8)**
 
 | Member | Role | Area |
 |---|---|---|
@@ -20,7 +20,7 @@ AI-powered medicine availability and alternative finder. Search for a medicine (
 | `backend/` | API and FastAPI ML microservice (planned) | 11. Architecture |
 | `frontend/` | React + Tailwind UI (planned) | 11. Architecture |
 
-## ML: availability prediction (done)
+## ML: availability prediction
 
 Predicts whether a medicine is in stock at a pharmacy on a given day.
 
