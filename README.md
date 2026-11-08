@@ -57,13 +57,45 @@ Run:
 python ml/01_load_and_split.py
 ```
 
+## Backend API (FastAPI)
+
+Run from the repository root with the virtual environment active:
+
+```
+pip install -r backend/requirements.txt
+uvicorn backend.main:app --reload
+```
+
+Interactive docs are at `http://127.0.0.1:8000/docs`. The API reads `DATABASE_URL` from `ml/.env` and loads the saved models from `ml/models/`.
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/health` | GET | Server status check |
+| `/medicines/search?q=paracetmol` | GET | Typo-tolerant medicine search (RapidFuzz), matches brand and generic names |
+| `/predict/availability` | POST | Stock probability for a medicine at every pharmacy, ranked. Body: `{"medicine_id": 1, "date": "2026-12-25"}` (date optional) |
+| `/forecast/demand?medicine_id=1&days=28` | GET | Daily and weekly demand forecast for a medicine |
+| `/pharmacies/nearby?lat=27.4924&lng=77.6737&radius_km=3&medicine_id=1` | GET | Pharmacies within a radius, optionally ranked by stock probability (`medicine_id` optional) |
+
+### Backend structure
+
+| File | Role |
+|---|---|
+| `backend/main.py` | App setup, CORS, router registration |
+| `backend/db.py` | Database connection (SQLAlchemy) |
+| `backend/search.py` | Fuzzy search logic |
+| `backend/predictor.py` | Availability model: feature building and prediction |
+| `backend/forecaster.py` | Demand model: feature building and forecasting |
+| `backend/locator.py` | Haversine distance and nearby ranking |
+| `backend/routes/` | One router file per endpoint group |
+
 ## Progress (week-wise plan from the synopsis)
 
 - [x] Week 1-2: schema and synthetic data generator
-- [x] Week 5 (early): availability prediction model trained, calibrated and saved
-- [ ] Week 3: fuzzy medicine search (RapidFuzz)
-- [ ] Week 4: pharmacy locator and map
-- [ ] Week 5: FastAPI ML microservice
-- [ ] Week 6: demand forecasting and price comparison
+- [x] Week 3: fuzzy medicine search (RapidFuzz)
+- [x] Week 5: availability prediction model trained, calibrated and saved
+- [x] Week 5: FastAPI service (search, availability, forecast, nearby endpoints)
+- [x] Week 6: demand forecasting
+- [ ] Week 4: pharmacy locator map (frontend)
+- [ ] Week 6: price comparison
 - [ ] Week 7: generic alternatives, hardening
 - [ ] Week 8: deployment and demo
