@@ -2,3 +2,67 @@
 venv/
 .venv/
 __pycache__/
+
+
+#Backend
+
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.python-version
+
+#Virtual environments
+venv/
+.venv/
+env/
+
+
+# Python tools
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+
+# Secrets
+
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Keep example environment files
+!.env.example
+
+
+# React/Vite Frontend
+
+node_modules/
+dist/
+.vite/
+coverage/
+
+
+*.log
+logs/
+
+
+*.db
+*.sqlite
+*.sqlite3
+
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+tmp/
+temp/
+*.tmp
+*.bak
