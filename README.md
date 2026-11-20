@@ -87,4 +87,9 @@ DATABASE_URL="your_database_url"
 
 Replace `your_database_url` with your actual database connection string.
 
+
+## Database Setup
+1. Create a PostgreSQL database (e.g. on Supabase or locally).
+2. Run the SQL script located at `backend/schema_and_seed.sql` in your PostgreSQL database or Supabase SQL Editor to create the tables and seed demo data.
+
 Keep both the backend and frontend servers running while using the application.
