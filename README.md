@@ -1,68 +1,67 @@
-MediFind AI
+
+# MediFind AI
 
 MediFind AI is a medicine discovery and healthcare information platform built using React, Vite, FastAPI, and Python. It provides medicine search, predictions, forecasting, alternatives, pharmacy location, and statistical insights.
 
-# How to Run Locally
+## Features
 
-1. Clone the Repository
+- Medicine search
+- Medicine prediction
+- Forecasting
+- Alternative medicine suggestions
+- Pharmacy location
+- Statistical insights
 
-Open a terminal and run:
+## Running Locally
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/himanshuAiml/Medifind_AI.git
-```
-
-Move into the project folder:
-
-```bash
 cd Medifind_AI
 ```
 
+### 2. Set Up the Backend
 
-
-# 2. Run the Backend
-
-Open a terminal in the project folder and run these commands one by one:
+Create a virtual environment:
 
 ```bash
 python -m venv venv
 ```
 
-Activate the virtual environment:
+Activate the virtual environment on Windows:
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install the required packages:
+Install the dependencies:
 
 ```bash
 pip install -r backend/requirements.txt
 ```
 
-Start the backend:
+Start the backend server:
 
 ```bash
 python -m uvicorn backend.main:app --reload --port 8000
 ```
 
-The backend will run at:
+Backend: http://127.0.0.1:8000
 
-http://127.0.0.1:8000
+API Documentation: http://127.0.0.1:8000/docs
 
-API documentation:
+### 3. Set Up the Frontend
 
-http://127.0.0.1:8000/docs
+Open a new terminal in the project folder.
 
-# 3. Run the Frontend
-
-Open a **new terminal**. Navigate to the frontend folder:
+Navigate to the frontend directory:
 
 ```bash
-cd Medifind_AI/frontend
+cd frontend
 ```
 
-Install the required packages:
+Install the dependencies:
 
 ```bash
 npm install
@@ -74,18 +73,18 @@ Start the frontend:
 npm run dev
 ```
 
-The frontend will run at:
+Frontend: http://localhost:5173
 
-http://localhost:5173
+Open the frontend URL in your browser to access MediFind AI.
 
-Open the above link in your browser to use MediFind AI.
+## Environment Configuration
 
-Important
+Create a `.env` file inside the `ML` folder and add your database connection string:
 
-Create a .env file inside the ML folder and add your database connection string:
-
+```env
 DATABASE_URL="your_database_url"
+```
 
-Replace your_database_url with your actual database connection string.
+Replace `your_database_url` with your actual database connection string.
 
-Keep both terminals running while using the application.
+Keep both the backend and frontend servers running while using the application.
