@@ -80,9 +80,12 @@ http://localhost:5173
 
 Open the above link in your browser to use MediFind AI.
 
-#Important 
-Create a `.env` file inside the ML folder and add your database connection string:
+Important
+
+Create a .env file inside the ML folder and add your database connection string:
 
 DATABASE_URL="your_database_url"
+
+Replace your_database_url with your actual database connection string.
 
 Keep both terminals running while using the application.
