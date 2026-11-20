@@ -18,6 +18,8 @@ Move into the project folder:
 cd Medifind_AI
 ```
 
+
+
 # 2. Run the Backend
 
 Open a terminal in the project folder and run these commands one by one:
@@ -77,5 +79,10 @@ The frontend will run at:
 http://localhost:5173
 
 Open the above link in your browser to use MediFind AI.
+
+#Important 
+Create a `.env` file inside the ML folder and add your database connection string:
+
+DATABASE_URL="your_database_url"
 
 Keep both terminals running while using the application.
