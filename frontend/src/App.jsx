@@ -11,20 +11,17 @@ const TABS = [
 ];
 
 const BACKGROUND = {
-  backgroundColor: "#0b0f17",
-  backgroundImage:
-    "radial-gradient(circle at 15% 10%, rgba(20,184,166,0.08), transparent 35%)," +
-    "radial-gradient(circle at 85% 20%, rgba(14,165,233,0.06), transparent 35%)",
-  backgroundAttachment: "fixed",
+  backgroundColor: "#f8f8f5",
+  minHeight: "100vh",
 };
 
 function PharmacyHeader() {
   return (
     <section className="mb-6 text-center">
-      <h2 className="text-3xl font-extrabold tracking-tight text-slate-100">
-        Stock smarter, <span className="text-teal-400">waste less</span>
+      <h2 className="text-3xl font-bold tracking-tight text-[#1f221e]">
+        Stock smarter, <span className="text-[#42543d]">waste less</span>
       </h2>
-      <p className="mx-auto mt-3 max-w-xl text-slate-400">
+      <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[#5c6057]">
         See the expected demand for any medicine over the next 4 weeks and get a suggested
         order quantity, so you stock what your customers will actually need.
       </p>
@@ -36,17 +33,22 @@ export default function App() {
   const [tab, setTab] = useState("patient");
 
   return (
-    <div className="min-h-screen text-slate-100" style={BACKGROUND}>
-      <div className="mx-auto max-w-3xl px-4 py-6">
-        <header className="mb-6 flex items-center justify-between">
+    <div style={BACKGROUND} className="text-[#1f221e]">
+      <div className="mx-auto max-w-3xl px-4 py-8">
+        <header className="mb-8 flex items-center justify-between border-b border-[#e4e4dd] pb-5">
           <div className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500 text-base font-black text-slate-950 shadow-sm">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#42543d] text-base font-bold text-white shadow-xs">
               +
             </span>
-            <h1 className="text-xl font-bold tracking-tight text-slate-100">MediFind</h1>
+            <div>
+              <h1 className="text-xl font-bold tracking-tight text-[#1f221e]">MediFind</h1>
+              <p className="text-[11px] font-medium uppercase tracking-wider text-[#73776e]">
+                Medicine Availability Portal
+              </p>
+            </div>
           </div>
-          <span className="rounded-full border border-slate-800 bg-slate-900 px-3 py-1 text-xs text-slate-400">
-            Medicine Locator
+          <span className="rounded-full border border-[#d5ded2] bg-[#edf2ea] px-3 py-1 text-xs font-medium text-[#384934]">
+            Live Catalog
           </span>
         </header>
 
@@ -59,7 +61,7 @@ export default function App() {
           <PharmacyHeader />
         )}
 
-        <nav className="mb-6 flex gap-2 border-b border-slate-800">
+        <nav className="mb-6 flex gap-2 border-b border-[#e4e4dd]">
           {TABS.map((t) => (
             <button
               key={t.id}
@@ -67,8 +69,8 @@ export default function App() {
               className={
                 "-mb-px border-b-2 px-4 py-2.5 text-sm font-medium transition-colors " +
                 (tab === t.id
-                  ? "border-teal-400 text-teal-300"
-                  : "border-transparent text-slate-400 hover:text-slate-200")
+                  ? "border-[#42543d] text-[#384934]"
+                  : "border-transparent text-[#73776e] hover:text-[#1f221e]")
               }
             >
               {t.label}
@@ -80,9 +82,9 @@ export default function App() {
 
         {tab === "patient" && <HowItWorks />}
 
-        <footer className="mt-12 border-t border-slate-800/80 pt-4 text-center text-xs text-slate-500">
-          MediFind is a healthcare search project built with demo data. Stock predictions are
-          estimates, not live inventory. Always confirm with the pharmacy and consult a doctor.
+        <footer className="mt-14 border-t border-[#e4e4dd] pt-5 text-center text-xs leading-relaxed text-[#7e8278]">
+          MediFind is a healthcare search platform built with demo data. Stock predictions are
+          estimates, not live inventory. Always confirm with the pharmacy and consult a medical professional.
         </footer>
       </div>
     </div>

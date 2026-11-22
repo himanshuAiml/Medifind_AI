@@ -18,19 +18,19 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section className="mt-12">
-      <h2 className="mb-4 text-center text-xl font-bold text-slate-100">How it works</h2>
+    <section className="mt-14">
+      <h2 className="mb-4 text-center text-lg font-bold text-[#1f221e]">How it works</h2>
       <div className="grid gap-3 sm:grid-cols-3">
         {STEPS.map((s) => (
           <div
             key={s.n}
-            className="rounded-xl border border-slate-800 bg-slate-900/80 p-4 shadow-sm"
+            className="rounded-xl border border-[#e2e2dc] bg-white p-4 shadow-xs"
           >
-            <span className="mb-2.5 flex h-7 w-7 items-center justify-center rounded-full border border-teal-500/30 bg-teal-500/20 text-xs font-bold text-teal-300">
+            <span className="mb-2.5 flex h-7 w-7 items-center justify-center rounded-full border border-[#d6ded2] bg-[#edf2ea] text-xs font-bold text-[#384934]">
               {s.n}
             </span>
-            <h3 className="font-semibold text-slate-100">{s.title}</h3>
-            <p className="mt-1 text-sm text-slate-400">{s.text}</p>
+            <h3 className="font-semibold text-[#1f221e]">{s.title}</h3>
+            <p className="mt-1 text-xs leading-relaxed text-[#6e7269]">{s.text}</p>
           </div>
         ))}
       </div>
