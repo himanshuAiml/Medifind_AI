@@ -5,21 +5,21 @@ export default function MedicineList({ results, selectedId, onSelect, details })
         <li key={m.id}>
           <button
             onClick={() => onSelect(m)}
-            className={`flex w-full items-center justify-between rounded-xl border p-4 text-left transition shadow-xs ${
+            className={`flex w-full items-center justify-between rounded-xl border p-4 text-left transition shadow-xs cursor-pointer ${
               selectedId === m.id
-                ? "border-[#3a4d35] bg-[#eeebe2] ring-2 ring-[#cfdacb]"
-                : "border-[#cfccc2] bg-[#eae7de] hover:border-[#b8b5a9] hover:bg-[#eeebe2]"
+                ? "border-[var(--olive-primary)] bg-[var(--bg-card-hover)] ring-2 ring-[var(--olive-badge-bg)]"
+                : "border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--border-focus)] hover:bg-[var(--bg-card-hover)]"
             }`}
           >
             <div>
-              <p className="text-base font-semibold text-[#1c1f1a]">{m.name}</p>
-              <p className="text-xs text-[#5e6358]">
+              <p className="text-base font-semibold text-[var(--text-primary)]">{m.name}</p>
+              <p className="text-xs text-[var(--text-muted)]">
                 {m.generic_name} · {m.category}
               </p>
             </div>
             <div className="text-right">
-              <p className="font-semibold text-[#2d3e29]">₹{m.base_price}</p>
-              <p className="text-[11px] text-[#787d72]">match {Math.round(m.score)}%</p>
+              <p className="font-semibold text-[var(--olive-primary)]">₹{m.base_price}</p>
+              <p className="text-[11px] text-[var(--text-muted)]">match {Math.round(m.score)}%</p>
             </div>
           </button>
 

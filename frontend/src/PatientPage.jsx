@@ -114,33 +114,33 @@ export default function PatientPage() {
 
   return (
     <div>
-      <p className="mb-4 text-xs text-[#5e6358]">
+      <p className="mb-4 text-xs text-[var(--text-muted)]">
         Search medicines and verify likelihood of availability at nearby pharmacies.
       </p>
 
-      <div className="mb-4 rounded-xl border border-[#cfccc2] bg-[#eae7de] p-3.5 shadow-xs">
-        <p className="text-xs text-[#1c1f1a]">
-          Searching near: <span className="font-semibold text-[#2d3e29]">{describe(locSource, location)}</span>
+      <div className="mb-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] p-3.5 shadow-xs">
+        <p className="text-xs text-[var(--text-primary)]">
+          Searching near: <span className="font-semibold text-[var(--olive-primary)]">{describe(locSource, location)}</span>
         </p>
 
         <div className="mt-2.5 flex flex-wrap gap-2">
           <button
             onClick={handleUseMyLocation}
             disabled={locBusy}
-            className="rounded-lg bg-[#3a4d35] px-3 py-1.5 text-xs font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[#2b3a27] disabled:opacity-60"
+            className="rounded-lg bg-[var(--olive-primary)] px-3 py-1.5 text-xs font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[var(--olive-hover)] disabled:opacity-60 cursor-pointer"
           >
             {locBusy ? "Finding you..." : "Use my location"}
           </button>
           <button
             onClick={() => setShowPicker((v) => !v)}
-            className="rounded-lg border border-[#cfccc0] bg-[#dedbd0] px-3 py-1.5 text-xs font-medium text-[#2d3e29] transition hover:bg-[#d5d2c6]"
+            className="rounded-lg border border-[var(--border-color)] bg-[var(--bg-card-hover)] px-3 py-1.5 text-xs font-medium text-[var(--text-primary)] transition hover:border-[var(--border-focus)] cursor-pointer"
           >
             {showPicker ? "Hide map" : "Pick on map"}
           </button>
           {locSource !== "demo" && (
             <button
               onClick={() => applyLocation(DEMO_LOCATION, "demo")}
-              className="rounded-lg border border-[#cfccc0] bg-[#dedbd0] px-3 py-1.5 text-xs font-medium text-[#5e6358] transition hover:bg-[#d5d2c6]"
+              className="rounded-lg border border-[var(--border-color)] bg-[var(--bg-card-hover)] px-3 py-1.5 text-xs font-medium text-[var(--text-muted)] transition hover:border-[var(--border-focus)] cursor-pointer"
             >
               Use demo location
             </button>
@@ -158,7 +158,7 @@ export default function PatientPage() {
         )}
 
         {locSource !== "demo" && (
-          <p className="mt-2 text-[11px] text-[#787d72]">
+          <p className="mt-2 text-[11px] text-[var(--text-muted)]">
             Our demo pharmacies are in Mathura. If your point is far from there, no pharmacies
             will appear within the radius.
           </p>
@@ -169,7 +169,7 @@ export default function PatientPage() {
 
       {error && <p className="mt-4 text-xs text-[#8c3636]">{error}</p>}
       {searched && !error && results.length === 0 && (
-        <p className="mt-6 text-xs text-[#5e6358]">No medicine found. Try a different spelling.</p>
+        <p className="mt-6 text-xs text-[var(--text-muted)]">No medicine found. Try a different spelling.</p>
       )}
 
       <MedicineList

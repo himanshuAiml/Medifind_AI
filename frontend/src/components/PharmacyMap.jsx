@@ -21,7 +21,7 @@ export default function PharmacyMap({ center, pharmacies }) {
 
   return (
     <div className="mt-4">
-      <div className="overflow-hidden rounded-xl border border-[#cfccc2]">
+      <div className="overflow-hidden rounded-xl border border-[var(--border-color)]">
         <MapContainer
           center={[center.lat, center.lng]}
           zoom={14}
@@ -62,7 +62,7 @@ export default function PharmacyMap({ center, pharmacies }) {
         </MapContainer>
       </div>
 
-      <div className="mt-2.5 flex flex-wrap gap-4 text-[11px] text-[#5e6358]">
+      <div className="mt-2.5 flex flex-wrap gap-4 text-[11px] text-[var(--text-muted)]">
         <span><span className="text-[#465a40]">●</span> 70% or more (likely)</span>
         <span><span className="text-[#967d43]">●</span> 40 to 70% (possible)</span>
         <span><span className="text-[#9e5454]">●</span> under 40% (unlikely)</span>

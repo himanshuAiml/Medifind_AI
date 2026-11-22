@@ -14,12 +14,12 @@ export default function SearchBar({ onSearch, loading }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Search a medicine, e.g. paracetamol or dolo"
-        className="flex-1 rounded-lg border border-[#c4c1b5] bg-[#f0ede6] px-4 py-3 text-base text-[#1c1f1a] placeholder-[#7d8276] outline-none transition focus:border-[#3a4d35] focus:ring-2 focus:ring-[#d8e0d4]"
+        className="flex-1 rounded-lg border border-[var(--border-focus)] bg-[var(--bg-input)] px-4 py-3 text-base text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition focus:border-[var(--olive-primary)] focus:ring-2 focus:ring-[var(--olive-badge-bg)]"
       />
       <button
         type="submit"
         disabled={loading}
-        className="rounded-lg bg-[#3a4d35] px-6 py-3 font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[#2b3a27] disabled:opacity-50"
+        className="rounded-lg bg-[var(--olive-primary)] px-6 py-3 font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[var(--olive-hover)] disabled:opacity-50 cursor-pointer"
       >
         {loading ? "Searching..." : "Search"}
       </button>

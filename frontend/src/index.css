@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+:root {
+  --bg-page: #e4e1d9;
+  --bg-card: #eae7de;
+  --bg-card-hover: #eeebe2;
+  --bg-input: #f0ede6;
+  --border-color: #cfccc2;
+  --border-focus: #c4c1b5;
+  --text-primary: #1c1f1a;
+  --text-secondary: #4e5348;
+  --text-muted: #787d72;
+  --olive-primary: #3a4d35;
+  --olive-hover: #2b3a27;
+  --olive-badge-bg: #d7e2d2;
+  --olive-badge-border: #b8c7b3;
+  --olive-badge-text: #283823;
+  --emergency-bg: #ebd8d8;
+  --emergency-border: #d8c2c2;
+  --emergency-text: #6e2c2c;
+  --track-bg: #dcd8ce;
+}
+
+[data-theme="dark"] {
+  --bg-page: #131612;
+  --bg-card: #1c211a;
+  --bg-card-hover: #242a22;
+  --bg-input: #1a1e18;
+  --border-color: #2c3329;
+  --border-focus: #3f493b;
+  --text-primary: #eff3ec;
+  --text-secondary: #afb7ab;
+  --text-muted: #7d8579;
+  --olive-primary: #4d6746;
+  --olive-hover: #5d7c55;
+  --olive-badge-bg: #20271d;
+  --olive-badge-border: #384633;
+  --olive-badge-text: #a2c699;
+  --emergency-bg: #2a1616;
+  --emergency-border: #482323;
+  --emergency-text: #e29898;
+  --track-bg: #282f25;
+}
