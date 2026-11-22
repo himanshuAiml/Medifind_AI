@@ -114,40 +114,40 @@ export default function PatientPage() {
 
   return (
     <div>
-      <p className="mb-4 text-sm text-slate-400">
+      <p className="mb-4 text-xs text-[#6e7269]">
         Search medicines and verify likelihood of availability at nearby pharmacies.
       </p>
 
-      <div className="mb-4 rounded-lg border border-slate-800 bg-slate-900/80 p-3.5 shadow-sm">
-        <p className="text-sm text-slate-300">
-          Searching near: <span className="font-semibold text-teal-300">{describe(locSource, location)}</span>
+      <div className="mb-4 rounded-xl border border-[#e2e2dc] bg-white p-3.5 shadow-xs">
+        <p className="text-xs text-[#1f221e]">
+          Searching near: <span className="font-semibold text-[#384934]">{describe(locSource, location)}</span>
         </p>
 
         <div className="mt-2.5 flex flex-wrap gap-2">
           <button
             onClick={handleUseMyLocation}
             disabled={locBusy}
-            className="rounded-lg bg-teal-600 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-teal-500 disabled:opacity-60"
+            className="rounded-lg bg-[#3d4f39] px-3 py-1.5 text-xs font-medium text-white transition shadow-xs hover:bg-[#303f2c] disabled:opacity-60"
           >
             {locBusy ? "Finding you..." : "Use my location"}
           </button>
           <button
             onClick={() => setShowPicker((v) => !v)}
-            className="rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-200 transition hover:bg-slate-700"
+            className="rounded-lg border border-[#cfd2cb] bg-[#f8f8f6] px-3 py-1.5 text-xs font-medium text-[#384934] transition hover:bg-[#edebe7]"
           >
             {showPicker ? "Hide map" : "Pick on map"}
           </button>
           {locSource !== "demo" && (
             <button
               onClick={() => applyLocation(DEMO_LOCATION, "demo")}
-              className="rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:bg-slate-700"
+              className="rounded-lg border border-[#cfd2cb] bg-[#f8f8f6] px-3 py-1.5 text-xs font-medium text-[#6e7269] transition hover:bg-[#edebe7]"
             >
               Use demo location
             </button>
           )}
         </div>
 
-        {locError && <p className="mt-2 text-xs text-rose-400">{locError}</p>}
+        {locError && <p className="mt-2 text-xs text-[#8c3e3e]">{locError}</p>}
 
         {showPicker && (
           <LocationPicker
@@ -158,7 +158,7 @@ export default function PatientPage() {
         )}
 
         {locSource !== "demo" && (
-          <p className="mt-2 text-xs text-slate-500">
+          <p className="mt-2 text-[11px] text-[#8e9389]">
             Our demo pharmacies are in Mathura. If your point is far from there, no pharmacies
             will appear within the radius.
           </p>
@@ -167,9 +167,9 @@ export default function PatientPage() {
 
       <SearchBar onSearch={handleSearch} loading={loading} />
 
-      {error && <p className="mt-4 text-sm text-rose-400">{error}</p>}
+      {error && <p className="mt-4 text-xs text-[#8c3e3e]">{error}</p>}
       {searched && !error && results.length === 0 && (
-        <p className="mt-6 text-sm text-slate-400">No medicine found. Try a different spelling.</p>
+        <p className="mt-6 text-xs text-[#6e7269]">No medicine found. Try a different spelling.</p>
       )}
 
       <MedicineList
