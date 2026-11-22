@@ -114,40 +114,40 @@ export default function PatientPage() {
 
   return (
     <div>
-      <p className="mb-4 text-slate-600">
-        Find medicines and check availability at nearby pharmacies.
+      <p className="mb-4 text-sm text-slate-400">
+        Search medicines and verify likelihood of availability at nearby pharmacies.
       </p>
 
-      <div className="mb-4 rounded-lg border border-slate-200 bg-white p-3">
-        <p className="text-sm text-slate-700">
-          Searching near: <span className="font-semibold">{describe(locSource, location)}</span>
+      <div className="mb-4 rounded-lg border border-slate-800 bg-slate-900/80 p-3.5 shadow-sm">
+        <p className="text-sm text-slate-300">
+          Searching near: <span className="font-semibold text-teal-300">{describe(locSource, location)}</span>
         </p>
 
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="mt-2.5 flex flex-wrap gap-2">
           <button
             onClick={handleUseMyLocation}
             disabled={locBusy}
-            className="rounded-lg bg-teal-600 px-3 py-1 text-sm text-white hover:bg-teal-700 disabled:opacity-60"
+            className="rounded-lg bg-teal-600 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-teal-500 disabled:opacity-60"
           >
             {locBusy ? "Finding you..." : "Use my location"}
           </button>
           <button
             onClick={() => setShowPicker((v) => !v)}
-            className="rounded-lg border border-teal-600 px-3 py-1 text-sm text-teal-700 hover:bg-teal-50"
+            className="rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-200 transition hover:bg-slate-700"
           >
             {showPicker ? "Hide map" : "Pick on map"}
           </button>
           {locSource !== "demo" && (
             <button
               onClick={() => applyLocation(DEMO_LOCATION, "demo")}
-              className="rounded-lg border border-slate-300 px-3 py-1 text-sm text-slate-700 hover:bg-slate-50"
+              className="rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:bg-slate-700"
             >
               Use demo location
             </button>
           )}
         </div>
 
-        {locError && <p className="mt-2 text-sm text-red-600">{locError}</p>}
+        {locError && <p className="mt-2 text-xs text-rose-400">{locError}</p>}
 
         {showPicker && (
           <LocationPicker
@@ -167,9 +167,9 @@ export default function PatientPage() {
 
       <SearchBar onSearch={handleSearch} loading={loading} />
 
-      {error && <p className="mt-4 text-red-600">{error}</p>}
+      {error && <p className="mt-4 text-sm text-rose-400">{error}</p>}
       {searched && !error && results.length === 0 && (
-        <p className="mt-6 text-slate-500">No medicine found. Try a different spelling.</p>
+        <p className="mt-6 text-sm text-slate-400">No medicine found. Try a different spelling.</p>
       )}
 
       <MedicineList

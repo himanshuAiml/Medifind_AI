@@ -45,7 +45,7 @@ export default function PharmacyPage() {
 
   return (
     <div>
-      <p className="mb-4 text-sm text-gray-600">
+      <p className="mb-4 text-sm text-slate-400">
         Plan your stock. Search a medicine to see its expected demand for the next 4 weeks.
       </p>
 
@@ -54,14 +54,14 @@ export default function PharmacyPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search a medicine, e.g. dolo"
-          className="flex-1 rounded-lg border border-gray-300 px-3 py-2"
+          className="flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3.5 py-2 text-sm text-slate-100 placeholder-slate-500 outline-none focus:border-teal-500"
         />
-        <button className="rounded-lg bg-teal-600 px-4 py-2 text-white hover:bg-teal-700">
+        <button className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-teal-500">
           Search
         </button>
       </form>
 
-      {error && <p className="mb-3 text-sm text-red-600">{error}</p>}
+      {error && <p className="mb-3 text-sm text-rose-400">{error}</p>}
 
       <div className="mb-6 flex flex-wrap gap-2">
         {results.map((m) => (
@@ -69,10 +69,10 @@ export default function PharmacyPage() {
             key={m.id}
             onClick={() => handleSelect(m)}
             className={
-              "rounded-full border px-3 py-1 text-sm " +
+              "rounded-full border px-3 py-1 text-xs font-medium transition " +
               (selected?.id === m.id
-                ? "border-teal-600 bg-teal-50 text-teal-700"
-                : "border-gray-300 text-gray-700 hover:bg-gray-50")
+                ? "border-teal-500 bg-teal-950/70 text-teal-300"
+                : "border-slate-800 bg-slate-900/80 text-slate-300 hover:border-slate-700 hover:text-slate-100")
             }
           >
             {m.name}
@@ -80,24 +80,24 @@ export default function PharmacyPage() {
         ))}
       </div>
 
-      {loading && <p className="text-sm text-gray-500">Loading forecast...</p>}
+      {loading && <p className="text-sm text-slate-400">Loading forecast...</p>}
 
       {forecast && (
         <section className="space-y-6">
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg border border-gray-200 p-4">
-              <p className="text-xs text-gray-500">Expected demand, next 28 days</p>
-              <p className="text-2xl font-bold text-gray-900">{total} units</p>
+            <div className="rounded-xl border border-slate-800 bg-slate-900/90 p-4">
+              <p className="text-xs text-slate-400">Expected demand, next 28 days</p>
+              <p className="mt-1 text-2xl font-bold text-slate-100">{total} units</p>
             </div>
-            <div className="rounded-lg border border-teal-200 bg-teal-50 p-4">
-              <p className="text-xs text-teal-700">Suggested order (incl. 15% buffer)</p>
-              <p className="text-2xl font-bold text-teal-800">{suggested} units</p>
+            <div className="rounded-xl border border-teal-800/60 bg-teal-950/40 p-4">
+              <p className="text-xs text-teal-300">Suggested order (incl. 15% buffer)</p>
+              <p className="mt-1 text-2xl font-bold text-teal-300">{suggested} units</p>
             </div>
           </div>
 
           <ForecastChart forecast={forecast} />
 
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-slate-500">
             Forecast from historical sales patterns (trend, weekends, seasonality). It is an
             estimate. Adjust for current stock and local events.
           </p>
