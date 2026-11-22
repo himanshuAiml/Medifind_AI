@@ -60,14 +60,14 @@ export default function ForecastChart({ forecast }) {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-[#cfccc2] bg-[#eae7de] p-4 shadow-xs">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#5e6358]">
+      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 shadow-xs">
+        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
           Expected daily demand
         </h3>
         <Line data={dailyData} options={options} />
       </div>
-      <div className="rounded-xl border border-[#cfccc2] bg-[#eae7de] p-4 shadow-xs">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#5e6358]">
+      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 shadow-xs">
+        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
           Expected weekly demand
         </h3>
         <Bar data={weeklyData} options={options} />
