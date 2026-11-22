@@ -21,10 +21,10 @@ export default function StatsBar() {
       {items.map((s) => (
         <div
           key={s.label}
-          className="rounded-xl border border-white bg-white/80 p-4 text-center shadow-sm backdrop-blur"
+          className="rounded-xl border border-slate-800 bg-slate-900/90 p-3.5 text-center shadow-sm"
         >
-          <p className="text-2xl font-bold text-teal-700">{s.value}</p>
-          <p className="text-xs text-slate-500">{s.label}</p>
+          <p className="text-2xl font-bold text-teal-400">{s.value}</p>
+          <p className="text-xs text-slate-400">{s.label}</p>
         </div>
       ))}
     </div>

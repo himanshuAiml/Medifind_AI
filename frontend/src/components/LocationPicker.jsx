@@ -12,7 +12,7 @@ function ClickHandler({ onPick }) {
 
 export default function LocationPicker({ startCenter, location, onPick }) {
   return (
-    <div className="mt-3 overflow-hidden rounded-lg border border-slate-200">
+    <div className="mt-3 overflow-hidden rounded-lg border border-slate-800">
       <MapContainer
         center={[startCenter.lat, startCenter.lng]}
         zoom={12}
@@ -29,7 +29,7 @@ export default function LocationPicker({ startCenter, location, onPick }) {
           pathOptions={{ color: "#0f766e", fillColor: "#14b8a6", fillOpacity: 0.85 }}
         />
       </MapContainer>
-      <p className="bg-slate-50 px-3 py-1 text-xs text-slate-500">
+      <p className="bg-slate-900 px-3 py-1.5 text-xs text-slate-400">
         Click anywhere on the map to set your location.
       </p>
     </div>
