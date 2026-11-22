@@ -21,7 +21,7 @@ export default function PharmacyMap({ center, pharmacies }) {
 
   return (
     <div className="mt-4">
-      <div className="overflow-hidden rounded-xl border border-[#e2e2dc]">
+      <div className="overflow-hidden rounded-xl border border-[#cfccc2]">
         <MapContainer
           center={[center.lat, center.lng]}
           zoom={14}
@@ -37,7 +37,7 @@ export default function PharmacyMap({ center, pharmacies }) {
           <CircleMarker
             center={[center.lat, center.lng]}
             radius={8}
-            pathOptions={{ color: "#fff", weight: 2, fillColor: "#2d3e2a", fillOpacity: 1 }}
+            pathOptions={{ color: "#fff", weight: 2, fillColor: "#253420", fillOpacity: 1 }}
           >
             <Popup>Your location (demo: central Mathura)</Popup>
           </CircleMarker>
@@ -62,11 +62,11 @@ export default function PharmacyMap({ center, pharmacies }) {
         </MapContainer>
       </div>
 
-      <div className="mt-2.5 flex flex-wrap gap-4 text-[11px] text-[#6e7269]">
+      <div className="mt-2.5 flex flex-wrap gap-4 text-[11px] text-[#5e6358]">
         <span><span className="text-[#465a40]">●</span> 70% or more (likely)</span>
         <span><span className="text-[#967d43]">●</span> 40 to 70% (possible)</span>
         <span><span className="text-[#9e5454]">●</span> under 40% (unlikely)</span>
-        <span><span className="text-[#2d3e2a]">●</span> your location</span>
+        <span><span className="text-[#253420]">●</span> your location</span>
       </div>
     </div>
   );

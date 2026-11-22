@@ -45,7 +45,7 @@ export default function PharmacyPage() {
 
   return (
     <div>
-      <p className="mb-4 text-xs text-[#6e7269]">
+      <p className="mb-4 text-xs text-[#5e6358]">
         Plan your pharmacy stock. Search a medicine to see its expected demand for the next 4 weeks.
       </p>
 
@@ -54,14 +54,14 @@ export default function PharmacyPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search a medicine, e.g. dolo"
-          className="flex-1 rounded-lg border border-[#cfd2cb] bg-white px-3.5 py-2 text-sm text-[#1f221e] placeholder-[#8f938a] outline-none transition focus:border-[#42543d] focus:ring-2 focus:ring-[#eef2ec]"
+          className="flex-1 rounded-lg border border-[#c4c1b5] bg-[#f0ede6] px-3.5 py-2 text-sm text-[#1c1f1a] placeholder-[#7d8276] outline-none transition focus:border-[#3a4d35] focus:ring-2 focus:ring-[#d8e0d4]"
         />
-        <button className="rounded-lg bg-[#3d4f39] px-4 py-2 text-sm font-medium text-white transition shadow-xs hover:bg-[#303f2c]">
+        <button className="rounded-lg bg-[#3a4d35] px-4 py-2 text-sm font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[#2b3a27]">
           Search
         </button>
       </form>
 
-      {error && <p className="mb-3 text-xs text-[#8c3e3e]">{error}</p>}
+      {error && <p className="mb-3 text-xs text-[#8c3636]">{error}</p>}
 
       <div className="mb-6 flex flex-wrap gap-2">
         {results.map((m) => (
@@ -71,8 +71,8 @@ export default function PharmacyPage() {
             className={
               "rounded-full border px-3 py-1 text-xs font-medium transition " +
               (selected?.id === m.id
-                ? "border-[#42543d] bg-[#f0f5ee] text-[#344930]"
-                : "border-[#e2e2dc] bg-white text-[#5c6057] hover:border-[#cfd3ca] hover:text-[#1f221e]")
+                ? "border-[#3a4d35] bg-[#d7e2d2] text-[#253620] font-semibold"
+                : "border-[#cfccc0] bg-[#eae7de] text-[#4e5348] hover:border-[#b8b5a9] hover:text-[#1c1f1a]")
             }
           >
             {m.name}
@@ -80,24 +80,24 @@ export default function PharmacyPage() {
         ))}
       </div>
 
-      {loading && <p className="text-xs text-[#6e7269]">Loading forecast...</p>}
+      {loading && <p className="text-xs text-[#5e6358]">Loading forecast...</p>}
 
       {forecast && (
         <section className="space-y-6">
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl border border-[#e2e2dc] bg-white p-4 shadow-xs">
-              <p className="text-xs text-[#6e7269]">Expected demand, next 28 days</p>
-              <p className="mt-1 text-2xl font-bold text-[#1f221e]">{total} units</p>
+            <div className="rounded-xl border border-[#cfccc2] bg-[#eae7de] p-4 shadow-xs">
+              <p className="text-xs text-[#5e6358]">Expected demand, next 28 days</p>
+              <p className="mt-1 text-2xl font-bold text-[#1c1f1a]">{total} units</p>
             </div>
-            <div className="rounded-xl border border-[#d2dfcc] bg-[#f2f7ef] p-4 shadow-xs">
-              <p className="text-xs text-[#384a34]">Suggested order (incl. 15% buffer)</p>
-              <p className="mt-1 text-2xl font-bold text-[#384a34]">{suggested} units</p>
+            <div className="rounded-xl border border-[#b8c7b3] bg-[#dce6d8] p-4 shadow-xs">
+              <p className="text-xs text-[#283823]">Suggested order (incl. 15% buffer)</p>
+              <p className="mt-1 text-2xl font-bold text-[#283823]">{suggested} units</p>
             </div>
           </div>
 
           <ForecastChart forecast={forecast} />
 
-          <p className="text-[11px] leading-relaxed text-[#8e9389]">
+          <p className="text-[11px] leading-relaxed text-[#787d72]">
             Forecast calculated from historical purchase patterns. Use as a planning guide alongside live inventory.
           </p>
         </section>

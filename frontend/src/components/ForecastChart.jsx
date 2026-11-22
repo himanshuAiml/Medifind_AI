@@ -19,13 +19,13 @@ const options = {
   plugins: { legend: { display: false } },
   scales: {
     x: {
-      grid: { color: "rgba(226, 226, 220, 0.6)" },
-      ticks: { color: "#6e7269", font: { size: 11 } },
+      grid: { color: "rgba(196, 193, 181, 0.4)" },
+      ticks: { color: "#5e6358", font: { size: 11 } },
     },
     y: {
       beginAtZero: true,
-      grid: { color: "rgba(226, 226, 220, 0.6)" },
-      ticks: { color: "#6e7269", font: { size: 11 } },
+      grid: { color: "rgba(196, 193, 181, 0.4)" },
+      ticks: { color: "#5e6358", font: { size: 11 } },
     },
   },
 };
@@ -37,8 +37,8 @@ export default function ForecastChart({ forecast }) {
       {
         label: "Units per day",
         data: forecast.daily.map((d) => Math.round(d.units)),
-        borderColor: "#42543d",
-        backgroundColor: "rgba(66, 84, 61, 0.12)",
+        borderColor: "#3a4d35",
+        backgroundColor: "rgba(58, 77, 53, 0.16)",
         fill: true,
         tension: 0.3,
         pointRadius: 2,
@@ -52,7 +52,7 @@ export default function ForecastChart({ forecast }) {
       {
         label: "Units per week",
         data: forecast.weekly.map((w) => Math.round(w.units)),
-        backgroundColor: "#42543d",
+        backgroundColor: "#3a4d35",
         borderRadius: 4,
       },
     ],
@@ -60,14 +60,14 @@ export default function ForecastChart({ forecast }) {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-[#e2e2dc] bg-white p-4 shadow-xs">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#6e7269]">
+      <div className="rounded-xl border border-[#cfccc2] bg-[#eae7de] p-4 shadow-xs">
+        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#5e6358]">
           Expected daily demand
         </h3>
         <Line data={dailyData} options={options} />
       </div>
-      <div className="rounded-xl border border-[#e2e2dc] bg-white p-4 shadow-xs">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#6e7269]">
+      <div className="rounded-xl border border-[#cfccc2] bg-[#eae7de] p-4 shadow-xs">
+        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#5e6358]">
           Expected weekly demand
         </h3>
         <Bar data={weeklyData} options={options} />
