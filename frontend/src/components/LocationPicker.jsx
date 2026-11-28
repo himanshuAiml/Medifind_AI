@@ -12,7 +12,7 @@ function ClickHandler({ onPick }) {
 
 export default function LocationPicker({ startCenter, location, onPick }) {
   return (
-    <div className="mt-3 overflow-hidden rounded-xl border border-[var(--border-color)]">
+    <div className="mt-3 overflow-hidden rounded-lg border border-slate-200">
       <MapContainer
         center={[startCenter.lat, startCenter.lng]}
         zoom={12}
@@ -26,10 +26,10 @@ export default function LocationPicker({ startCenter, location, onPick }) {
         <CircleMarker
           center={[location.lat, location.lng]}
           radius={9}
-          pathOptions={{ color: "#253420", fillColor: "#3a4d35", fillOpacity: 0.85 }}
+          pathOptions={{ color: "#0f766e", fillColor: "#14b8a6", fillOpacity: 0.85 }}
         />
       </MapContainer>
-      <p className="bg-[var(--bg-card)] px-3 py-1.5 text-[11px] text-[var(--text-muted)]">
+      <p className="bg-slate-50 px-3 py-1 text-xs text-slate-500">
         Click anywhere on the map to set your location.
       </p>
     </div>

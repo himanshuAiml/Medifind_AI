@@ -45,8 +45,8 @@ export default function PharmacyPage() {
 
   return (
     <div>
-      <p className="mb-4 text-xs text-[var(--text-muted)]">
-        Plan your pharmacy stock. Search a medicine to see its expected demand for the next 4 weeks.
+      <p className="mb-4 text-sm text-gray-600">
+        Plan your stock. Search a medicine to see its expected demand for the next 4 weeks.
       </p>
 
       <form onSubmit={handleSearch} className="mb-4 flex gap-2">
@@ -54,14 +54,14 @@ export default function PharmacyPage() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search a medicine, e.g. dolo"
-          className="flex-1 rounded-lg border border-[var(--border-focus)] bg-[var(--bg-input)] px-3.5 py-2 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition focus:border-[var(--olive-primary)] focus:ring-2 focus:ring-[var(--olive-badge-bg)]"
+          className="flex-1 rounded-lg border border-gray-300 px-3 py-2"
         />
-        <button className="rounded-lg bg-[var(--olive-primary)] px-4 py-2 text-sm font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[var(--olive-hover)] cursor-pointer">
+        <button className="rounded-lg bg-teal-600 px-4 py-2 text-white hover:bg-teal-700">
           Search
         </button>
       </form>
 
-      {error && <p className="mb-3 text-xs text-[#8c3636]">{error}</p>}
+      {error && <p className="mb-3 text-sm text-red-600">{error}</p>}
 
       <div className="mb-6 flex flex-wrap gap-2">
         {results.map((m) => (
@@ -69,10 +69,10 @@ export default function PharmacyPage() {
             key={m.id}
             onClick={() => handleSelect(m)}
             className={
-              "rounded-full border px-3 py-1 text-xs font-medium transition cursor-pointer " +
+              "rounded-full border px-3 py-1 text-sm " +
               (selected?.id === m.id
-                ? "border-[var(--olive-primary)] bg-[var(--olive-badge-bg)] text-[var(--olive-badge-text)] font-semibold"
-                : "border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-[var(--border-focus)] hover:text-[var(--text-primary)]")
+                ? "border-teal-600 bg-teal-50 text-teal-700"
+                : "border-gray-300 text-gray-700 hover:bg-gray-50")
             }
           >
             {m.name}
@@ -80,25 +80,26 @@ export default function PharmacyPage() {
         ))}
       </div>
 
-      {loading && <p className="text-xs text-[var(--text-muted)]">Loading forecast...</p>}
+      {loading && <p className="text-sm text-gray-500">Loading forecast...</p>}
 
       {forecast && (
         <section className="space-y-6">
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 shadow-xs">
-              <p className="text-xs text-[var(--text-muted)]">Expected demand, next 28 days</p>
-              <p className="mt-1 text-2xl font-bold text-[var(--text-primary)]">{total} units</p>
+            <div className="rounded-lg border border-gray-200 p-4">
+              <p className="text-xs text-gray-500">Expected demand, next 28 days</p>
+              <p className="text-2xl font-bold text-gray-900">{total} units</p>
             </div>
-            <div className="rounded-xl border border-[var(--olive-badge-border)] bg-[var(--olive-badge-bg)] p-4 shadow-xs">
-              <p className="text-xs text-[var(--olive-badge-text)]">Suggested order (incl. 15% buffer)</p>
-              <p className="mt-1 text-2xl font-bold text-[var(--olive-badge-text)]">{suggested} units</p>
+            <div className="rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-xs text-teal-700">Suggested order (incl. 15% buffer)</p>
+              <p className="text-2xl font-bold text-teal-800">{suggested} units</p>
             </div>
           </div>
 
           <ForecastChart forecast={forecast} />
 
-          <p className="text-[11px] leading-relaxed text-[var(--text-muted)]">
-            Forecast calculated from historical purchase patterns. Use as a planning guide alongside live inventory.
+          <p className="text-xs text-gray-500">
+            Forecast from historical sales patterns (trend, weekends, seasonality). It is an
+            estimate. Adjust for current stock and local events.
           </p>
         </section>
       )}

@@ -13,13 +13,13 @@ export default function SearchBar({ onSearch, loading }) {
       <input
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Search a medicine, e.g. paracetamol or dolo"
-        className="flex-1 rounded-lg border border-[var(--border-focus)] bg-[var(--bg-input)] px-4 py-3 text-base text-[var(--text-primary)] placeholder-[var(--text-muted)] outline-none transition focus:border-[var(--olive-primary)] focus:ring-2 focus:ring-[var(--olive-badge-bg)]"
+        placeholder="Search a medicine, e.g. paracetmol"
+        className="flex-1 rounded-lg border border-slate-300 px-4 py-3 text-lg outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-200"
       />
       <button
         type="submit"
         disabled={loading}
-        className="rounded-lg bg-[var(--olive-primary)] px-6 py-3 font-medium text-[#f7f6f2] transition shadow-xs hover:bg-[var(--olive-hover)] disabled:opacity-50 cursor-pointer"
+        className="rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-800 disabled:opacity-60"
       >
         {loading ? "Searching..." : "Search"}
       </button>

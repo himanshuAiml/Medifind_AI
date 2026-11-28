@@ -17,17 +17,7 @@ ChartJS.register(
 const options = {
   responsive: true,
   plugins: { legend: { display: false } },
-  scales: {
-    x: {
-      grid: { color: "rgba(196, 193, 181, 0.4)" },
-      ticks: { color: "#5e6358", font: { size: 11 } },
-    },
-    y: {
-      beginAtZero: true,
-      grid: { color: "rgba(196, 193, 181, 0.4)" },
-      ticks: { color: "#5e6358", font: { size: 11 } },
-    },
-  },
+  scales: { y: { beginAtZero: true } },
 };
 
 export default function ForecastChart({ forecast }) {
@@ -37,8 +27,8 @@ export default function ForecastChart({ forecast }) {
       {
         label: "Units per day",
         data: forecast.daily.map((d) => Math.round(d.units)),
-        borderColor: "#3a4d35",
-        backgroundColor: "rgba(58, 77, 53, 0.16)",
+        borderColor: "#0d9488",
+        backgroundColor: "rgba(13,148,136,0.15)",
         fill: true,
         tension: 0.3,
         pointRadius: 2,
@@ -52,24 +42,20 @@ export default function ForecastChart({ forecast }) {
       {
         label: "Units per week",
         data: forecast.weekly.map((w) => Math.round(w.units)),
-        backgroundColor: "#3a4d35",
+        backgroundColor: "#0d9488",
         borderRadius: 4,
       },
     ],
   };
 
   return (
-    <div className="space-y-4">
-      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 shadow-xs">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
-          Expected daily demand
-        </h3>
+    <div className="space-y-6">
+      <div>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700">Expected daily demand</h3>
         <Line data={dailyData} options={options} />
       </div>
-      <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] p-4 shadow-xs">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
-          Expected weekly demand
-        </h3>
+      <div>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700">Expected weekly demand</h3>
         <Bar data={weeklyData} options={options} />
       </div>
     </div>

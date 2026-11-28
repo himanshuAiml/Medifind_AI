@@ -1,8 +1,7 @@
 export function chance(p) {
   if (p >= 0.7)
-    return { label: "Likely in stock", bar: "bg-[#465a40]", text: "text-[#33442e]", color: "#465a40" };
+    return { label: "Likely in stock", bar: "bg-emerald-500", text: "text-emerald-700", color: "#10b981" };
   if (p >= 0.4)
-    return { label: "Maybe in stock", bar: "bg-[#967d43]", text: "text-[#78612e]", color: "#967d43" };
-  return { label: "Unlikely in stock", bar: "bg-[#9e5454]", text: "text-[#7d3939]", color: "#9e5454" };
+    return { label: "Maybe in stock", bar: "bg-amber-500", text: "text-amber-700", color: "#f59e0b" };
+  return { label: "Unlikely in stock", bar: "bg-rose-500", text: "text-rose-700", color: "#f43f5e" };
 }
-

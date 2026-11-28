@@ -21,52 +21,50 @@ export default function PharmacyMap({ center, pharmacies }) {
 
   return (
     <div className="mt-4">
-      <div className="overflow-hidden rounded-xl border border-[var(--border-color)]">
-        <MapContainer
+      <MapContainer
+        center={[center.lat, center.lng]}
+        zoom={14}
+        scrollWheelZoom={false}
+        className="h-72 w-full rounded-lg"
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <FitToPoints points={points} />
+
+        <CircleMarker
           center={[center.lat, center.lng]}
-          zoom={14}
-          scrollWheelZoom={false}
-          className="h-72 w-full"
+          radius={8}
+          pathOptions={{ color: "#fff", weight: 2, fillColor: "#2563eb", fillOpacity: 1 }}
         >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <FitToPoints points={points} />
+          <Popup>Your location (demo: central Mathura)</Popup>
+        </CircleMarker>
 
-          <CircleMarker
-            center={[center.lat, center.lng]}
-            radius={8}
-            pathOptions={{ color: "#fff", weight: 2, fillColor: "#253420", fillOpacity: 1 }}
-          >
-            <Popup>Your location (demo: central Mathura)</Popup>
-          </CircleMarker>
+        {pharmacies.map((p) => {
+          const level = chance(p.probability);
+          return (
+            <CircleMarker
+              key={p.id}
+              center={[p.latitude, p.longitude]}
+              radius={11}
+              pathOptions={{ color: "#fff", weight: 2, fillColor: level.color, fillOpacity: 0.95 }}
+            >
+              <Popup>
+                <strong>{p.name}</strong>
+                <br />
+                {Math.round(p.probability * 100)}% chance · {p.distance_km} km away
+              </Popup>
+            </CircleMarker>
+          );
+        })}
+      </MapContainer>
 
-          {pharmacies.map((p) => {
-            const level = chance(p.probability);
-            return (
-              <CircleMarker
-                key={p.id}
-                center={[p.latitude, p.longitude]}
-                radius={11}
-                pathOptions={{ color: "#fff", weight: 2, fillColor: level.color, fillOpacity: 0.95 }}
-              >
-                <Popup>
-                  <strong>{p.name}</strong>
-                  <br />
-                  {Math.round(p.probability * 100)}% chance · {p.distance_km} km away
-                </Popup>
-              </CircleMarker>
-            );
-          })}
-        </MapContainer>
-      </div>
-
-      <div className="mt-2.5 flex flex-wrap gap-4 text-[11px] text-[var(--text-muted)]">
-        <span><span className="text-[#465a40]">●</span> 70% or more (likely)</span>
-        <span><span className="text-[#967d43]">●</span> 40 to 70% (possible)</span>
-        <span><span className="text-[#9e5454]">●</span> under 40% (unlikely)</span>
-        <span><span className="text-[#253420]">●</span> your location</span>
+      <div className="mt-2 flex gap-4 text-xs text-slate-500">
+        <span><span className="text-emerald-500">●</span> 70% or more</span>
+        <span><span className="text-amber-500">●</span> 40 to 70%</span>
+        <span><span className="text-rose-500">●</span> under 40%</span>
+        <span><span className="text-blue-600">●</span> you</span>
       </div>
     </div>
   );

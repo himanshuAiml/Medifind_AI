@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PatientPage from "./PatientPage";
 import PharmacyPage from "./PharmacyPage";
 import Hero from "./components/Hero";
@@ -11,17 +11,21 @@ const TABS = [
 ];
 
 const BACKGROUND = {
-  backgroundColor: "var(--bg-page)",
-  minHeight: "100vh",
+  backgroundColor: "#f0fdfa",
+  backgroundImage:
+    "radial-gradient(circle at 12% 8%, rgba(20,184,166,0.20), transparent 40%)," +
+    "radial-gradient(circle at 88% 18%, rgba(56,189,248,0.20), transparent 40%)," +
+    "radial-gradient(circle at 50% 95%, rgba(167,243,208,0.40), transparent 45%)",
+  backgroundAttachment: "fixed",
 };
 
 function PharmacyHeader() {
   return (
     <section className="mb-6 text-center">
-      <h2 className="text-3xl font-bold tracking-tight text-[var(--text-primary)]">
-        Stock smarter, <span className="text-[var(--olive-primary)]">waste less</span>
+      <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">
+        Stock smarter, <span className="text-teal-600">waste less</span>
       </h2>
-      <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
+      <p className="mx-auto mt-3 max-w-xl text-slate-600">
         See the expected demand for any medicine over the next 4 weeks and get a suggested
         order quantity, so you stock what your customers will actually need.
       </p>
@@ -31,63 +35,15 @@ function PharmacyHeader() {
 
 export default function App() {
   const [tab, setTab] = useState("patient");
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem("theme");
-    return saved === "dark";
-  });
-
-  useEffect(() => {
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
-    if (darkMode) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-  }, [darkMode]);
 
   return (
-    <div style={BACKGROUND} className="text-[var(--text-primary)] transition-colors duration-200">
-      <div className="mx-auto max-w-3xl px-4 py-8">
-        <header className="mb-8 flex items-center justify-between border-b border-[var(--border-color)] pb-5">
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--olive-primary)] text-base font-bold text-[#f7f6f2] shadow-xs">
-              +
-            </span>
-            <div>
-              <h1 className="text-xl font-bold tracking-tight text-[var(--text-primary)]">MediFind</h1>
-              <p className="text-[11px] font-medium uppercase tracking-wider text-[var(--text-muted)]">
-                Medicine Availability Portal
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5">
-            <button
-              onClick={() => setDarkMode((d) => !d)}
-              className="flex items-center gap-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)] transition hover:border-[var(--border-focus)] hover:text-[var(--text-primary)] shadow-xs cursor-pointer"
-              aria-label="Toggle dark mode"
-              title={darkMode ? "Switch to soothing light mode" : "Switch to dark mode"}
-            >
-              {darkMode ? (
-                <>
-                  <svg className="h-3.5 w-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                  </svg>
-                  <span>Light</span>
-                </>
-              ) : (
-                <>
-                  <svg className="h-3.5 w-3.5 text-[#5e6358]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                  </svg>
-                  <span>Dark</span>
-                </>
-              )}
-            </button>
-            <span className="hidden sm:inline-block rounded-full border border-[var(--olive-badge-border)] bg-[var(--olive-badge-bg)] px-3 py-1 text-xs font-semibold text-[var(--olive-badge-text)]">
-              Live Catalog
-            </span>
-          </div>
+    <div className="min-h-screen" style={BACKGROUND}>
+      <div className="mx-auto max-w-3xl px-4 py-6">
+        <header className="mb-6 flex items-center gap-2">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-lg font-bold text-white">
+            +
+          </span>
+          <h1 className="text-2xl font-bold text-teal-800">MediFind AI</h1>
         </header>
 
         {tab === "patient" ? (
@@ -99,16 +55,16 @@ export default function App() {
           <PharmacyHeader />
         )}
 
-        <nav className="mb-6 flex gap-2 border-b border-[var(--border-color)]">
+        <nav className="mb-6 flex gap-2 border-b border-teal-100">
           {TABS.map((t) => (
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
               className={
-                "-mb-px border-b-2 px-4 py-2.5 text-sm font-medium transition-colors " +
+                "-mb-px border-b-2 px-4 py-2 text-sm font-medium " +
                 (tab === t.id
-                  ? "border-[var(--olive-primary)] text-[var(--text-primary)] font-semibold"
-                  : "border-transparent text-[var(--text-muted)] hover:text-[var(--text-primary)]")
+                  ? "border-teal-600 text-teal-700"
+                  : "border-transparent text-gray-500 hover:text-gray-700")
               }
             >
               {t.label}
@@ -120,9 +76,9 @@ export default function App() {
 
         {tab === "patient" && <HowItWorks />}
 
-        <footer className="mt-14 border-t border-[var(--border-color)] pt-5 text-center text-xs leading-relaxed text-[var(--text-muted)]">
-          MediFind is a healthcare search platform built with demo data. Stock predictions are
-          estimates, not live inventory. Always confirm with the pharmacy and consult a medical professional.
+        <footer className="mt-12 border-t border-teal-100 pt-4 text-center text-xs text-slate-500">
+          MediFind AI is a portfolio project built with demo data. Stock predictions are
+          estimates, not live inventory. Always confirm with the pharmacy and consult a doctor.
         </footer>
       </div>
     </div>
