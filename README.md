@@ -114,5 +114,3 @@ App: http://localhost:5173. To point the frontend at a different API, set `VITE_
 ## Author
 
 Himanshu Gupta
-Chaudhary Harsh
-Hitesh Kumar
